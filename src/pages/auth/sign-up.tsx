@@ -28,13 +28,13 @@ export function SignUp() {
     formState: { isSubmitting },
   } = useForm<SignUpForm>()
 
-  const { mutateAsync: signUpRestaurant } = useMutation({
+  const { mutateAsync: signUpFn } = useMutation({
     mutationFn: signUp,
   })
 
   async function handleSignUp(data: SignUpForm) {
     try {
-      await signUpRestaurant({
+      await signUpFn({
         restaurantName: data.restaurantName,
         managerName: data.managerName,
         email: data.email,
